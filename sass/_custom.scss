@@ -1,0 +1,216 @@
+.navbar{
+    button{
+        border: none;
+    }
+    button:focus {
+        outline: none;
+    }
+    // a{
+    //     color: set-text-color($main-color);
+    // }
+}
+
+.navbar-brand{
+    color: set-text-color($main-color)!important;
+}
+
+.showcase {
+    background:url("https://source.unsplash.com/random/1920x600") no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+    width: 100%;
+    height: 450px;
+    padding-top: 15px;
+    
+    .container{
+        background: white;
+        border-radius: 15px;
+        padding: 20px 30px;
+        opacity: 0.7;
+    }
+    h1{
+        font-size: 60px;
+    }
+    p{
+        font-weight: 500;
+    }
+}
+@media all and (max-width: 576px) {
+    .showcase{
+        padding-top: 120px;
+        .container{
+            width: 80%;
+            padding: 20px 30px;
+        }
+        h1{
+            font-size: 45px;
+        }
+        p{
+            font-size: 12px;
+        }
+    }
+}
+
+.section-a{
+    padding: 50px 0;
+    text-align: center;
+    background: $main-color;
+    color: set-text-color($main-color);
+
+    .fab{
+        font-size: $icon-size;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .section-a{
+        padding: 100px 0;
+        .col-md-4:nth-of-type(2){
+            padding:100px;
+        }
+    }
+}
+
+.section-b{
+    width: 100%;
+    background: #dadada;
+
+    .list-group{
+        box-shadow: 0.5px 0.5px 5px #b8b8b8;
+        .list-group-item:first-child{
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+        .list-group-item{
+            // background: darken(white,10%);
+            color: $gray-800;      
+        }
+        .list-group-item:last-child{
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .active{
+            background: $main-color;
+            color: white;
+        }
+    }
+
+    .tab-content{
+        .tab-pane{
+            p{
+                font-size:20px;
+                    .icon-flag{
+                        width: 10%; 
+                }
+            }
+        }
+    }
+    
+    .col-md-6{
+        .image-me{
+            border-radius: 50%;
+           padding: 50px;
+        }
+    }
+    
+}
+@media all and (min-width:768px) and (max-width: 992px) {
+    .section-b{
+        .list-group{
+            a{
+                font-size: 12px;
+            }
+        }
+
+        .tab-content{
+            .tab-pane{
+                p,a{
+                    font-size:12px !important;
+                }
+            }
+        }
+    }
+}
+@media all and (max-width: 768px) {
+    .section-b{
+            padding-bottom: 50px;
+    }
+}
+@media all and (max-width: 576px) {
+    .section-b{
+        .col-4 {
+            max-width: 100%;
+            flex: none;
+            padding-bottom: 15px;
+        }
+        .col-8{
+            p{
+                font-size: 15px;
+                padding: 0 2%;
+            }
+        }
+}
+}
+
+.section-c{
+    padding: 60px 0;
+    text-align: center;
+    background: $main-color;
+    color: set-text-color($main-color);
+    .btn:focus {
+        outline: none !important;
+        border: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+    button{
+        background: darken($main-color , 10%);
+        color: set-text-color($main-color);
+    }
+    button:hover{
+        background: lighten($main-color , 10%);
+        color: set-text-color($main-color);
+    }
+}
+
+footer{
+    padding: 5px 0;
+    background: darken($main-color,10%);
+    color: set-text-color($main-color);
+    li{
+        padding: 0 15px;
+        list-style: none;
+        a{
+            color: set-text-color($main-color); 
+            :hover{
+                color: rgba($white, .75);
+            }
+        }
+    }
+}
+@media all and (max-width: 576px) {
+    footer{
+        margin: auto;
+        .container{
+            .row{
+                .col-sm-6{
+                    text-align: center;
+                    p{
+                        font-size: 20px;
+                    }
+                    ul{
+                        justify-content: center;
+                        padding: 0;
+                        li{
+                            padding: 0 15px;
+                            a{
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

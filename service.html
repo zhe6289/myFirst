@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootstrap Sass</title>
+    <link rel="stylesheet" href="sass/app.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <style>
+        .keys-container {
+            background: #dadada;
+            /* background: url(http://i.imgur.com/b9r5sEL.jpg); */
+            background-size: cover;
+            font-family: sans-serif;
+            width: 100%;
+            position: relative;
+        }
+
+        .keys {
+            display: flex;
+            width: 80%;
+            height: 92vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .key {
+            border: .4rem solid black;
+            border-radius: .5rem;
+            margin: 1rem;
+            font-size: 16px;
+            padding: .5rem 1.5rem;
+            transition: all .07s ease;
+            width: 100%;
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.4);
+            text-shadow: 0 0 .5rem black;
+        }
+
+        .playing {
+            transform: scale(1.1);
+            border-color: #ffc600;
+            box-shadow: 0 0 1rem #ffc600;
+        }
+
+        kbd {
+            display: block;
+            font-size: 2rem;
+            background: none;
+        }
+
+        .sound {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: .1rem;
+            color: #ffc600;
+        }
+
+        .res-text {
+            display: none;
+        }
+
+        .key-title {
+            display: block;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(251, 255, 0);
+            text-align: center;
+            line-height: 50px;
+            text-shadow: 2px 2px 5px rgb(0, 0, 0);
+            width: 100%;
+        }
+
+        .key-title h1 {
+            font-weight: 800;
+        }
+
+        .key-title p {
+            font-size: 20px;
+        }
+
+        @media screen and (max-width:768px) {
+            .key {
+                display: none;
+            }
+
+            .res-text {
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: rgb(251, 255, 0);
+                text-align: center;
+                line-height: 50px;
+                text-shadow: 2px 2px 5px rgb(0, 0, 0);
+                width: 100%;
+            }
+
+            .res-text h1 {
+                font-weight: 800;
+            }
+
+            .res-text p {
+                font-size: 20px;
+            }
+
+            .key-title {
+                display: none;
+            }
+        }
+
+        /* panels */
+        .panels {
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .panel {
+            background: #6B0F9C;
+            box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
+            color: white;
+            text-align: center;
+            align-items: center;
+            /* Safari transitionend event.propertyName === flex */
+            /* Chrome + FF transitionend event.propertyName === flex-grow */
+            transition:
+                font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+                flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+                background 0.2s;
+            font-size: 20px;
+            background-size: cover;
+            background-position: center;
+            flex: 1;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel1 {
+            /* background-image: url(https://source.unsplash.com/random/800x800?sig=1); */
+            background: rgb(255, 131, 131);
+        }
+
+        .panel2 {
+            /* background-image: url(https://source.unsplash.com/random/800x801?sig=2); */
+            background: rgb(255, 209, 124);
+        }
+
+        .panel3 {
+            /* background-image: url(https://source.unsplash.com/random/800x802?sig=3); */
+            background: rgb(255, 255, 128);
+        }
+
+        .panel4 {
+            /* background-image: url(https://source.unsplash.com/random/800x803?sig=4); */
+            background: rgb(130, 255, 130);
+        }
+
+        .panel5 {
+            /* background-image: url(https://source.unsplash.com/random/800x804?sig=5); */
+            background: rgb(131, 131, 255);
+        }
+
+        /* Flex Items */
+        .panel>* {
+            margin: 0;
+            width: 100%;
+            transition: transform 0.5s;
+            flex: 1 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .panel>*:first-child {
+            transform: translateY(-100%);
+        }
+
+        .panel.open-active>*:first-child {
+            transform: translateY(0);
+        }
+
+        .panel>*:last-child {
+            transform: translateY(100%);
+        }
+
+        .panel.open-active>*:last-child {
+            transform: translateY(0);
+        }
+
+        .panel p {
+            text-transform: uppercase;
+            font-family: 'Amatic SC', cursive;
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+            font-size: 2em;
+        }
+
+        .panel p:nth-child(2) {
+            font-size: 4em;
+        }
+
+        .panel.open {
+            flex: 5;
+            font-size: 40px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .panel p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-main-color">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="service.html">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">VueJS</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right d-none d-md-flex">
+                    <li><a class="nav-link" href="http://line.com" target="_blank"><i class="fab fa-line fa-lg"></i></a>
+                    </li>
+                    <li><a class="nav-link" href="http://facebook.com" target="_blank"><i
+                                class="fab fa-facebook fa-lg"></i></a></li>
+                    <li><a class="nav-link" href="http://instagram.com" target="_blank"><i
+                                class="fab fa-instagram fa-lg"></i></a></li>
+                    <li><a class="nav-link" href="http://youtube.com" target="_blank"><i
+                                class="fab fa-youtube fa-lg"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="keys-container">
+        <div class="res-text">
+            <h1>Drumkit Is only Playable with keyboard</h1>
+            <p>Kindly switch to computer mode to play it XD </p>
+        </div>
+        <div class="key-title">
+            <h1>To Play DrumKit !</h1>
+            <p>Press bellow the following key</p>
+        </div>
+
+        <div class="keys m-auto">
+            <div data-key="65" class="key">
+                <kbd>A</kbd>
+                <span class="sound">clap</span>
+            </div>
+            <div data-key="83" class="key">
+                <kbd>S</kbd>
+                <span class="sound">hihat</span>
+            </div>
+            <div data-key="68" class="key">
+                <kbd>D</kbd>
+                <span class="sound">kick</span>
+            </div>
+            <div data-key="70" class="key">
+                <kbd>F</kbd>
+                <span class="sound">ophat</span>
+            </div>
+            <div data-key="71" class="key">
+                <kbd>G</kbd>
+                <span class="sound">boom</span>
+            </div>
+            <div data-key="72" class="key">
+                <kbd>H</kbd>
+                <span class="sound">ride</span>
+            </div>
+            <div data-key="74" class="key">
+                <kbd>J</kbd>
+                <span class="sound">snare</span>
+            </div>
+            <div data-key="75" class="key">
+                <kbd>K</kbd>
+                <span class="sound">tom</span>
+            </div>
+            <div data-key="76" class="key">
+                <kbd>L</kbd>
+                <span class="sound">tink</span>
+            </div>
+        </div>
+    </div>
+
+
+    <audio data-key="65" src="sounds/clap.wav"></audio>
+    <audio data-key="83" src="sounds/hihat.wav"></audio>
+    <audio data-key="68" src="sounds/kick.wav"></audio>
+    <audio data-key="70" src="sounds/openhat.wav"></audio>
+    <audio data-key="71" src="sounds/boom.wav"></audio>
+    <audio data-key="72" src="sounds/ride.wav"></audio>
+    <audio data-key="74" src="sounds/snare.wav"></audio>
+    <audio data-key="75" src="sounds/tom.wav"></audio>
+    <audio data-key="76" src="sounds/tink.wav"></audio>
+
+    <div class="panels">
+        <div class="panel panel1">
+            <p>衝</p>
+            <p>三</p>
+            <p>小</p>
+        </div>
+        <div class="panel panel2">
+            <p>相</p>
+            <p>思</p>
+            <p>病</p>
+        </div>
+        <div class="panel panel3">
+            <p>二</p>
+            <p>而</p>
+            <p>一</p>
+        </div>
+        <div class="panel panel4">
+            <p>馬</p>
+            <p>後</p>
+            <p>炮</p>
+        </div>
+        <div class="panel panel5">
+            <p>可</p>
+            <p>行</p>
+            <p>性</p>
+        </div>
+    </div>
+
+    <div class="section-c">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 m-auto">
+                    <h2>Subscribe To Our Newsletter</h2>
+                    <br />
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, unde?</p>
+                    <hr />
+                    <form class="contact-form" method="post" action="contact-form-handler.php">
+                        <input name="name" type="text" class="form-control" placeholder="Enter Your Name">
+                        <br>
+                        <input name="email" type="email" class="form-control" placeholder="Enter Your Email">
+                        <br>
+                        <textarea name="message" class="form-control" placeholder="Type Your Message Here" cols="30"
+                            rows="10" required></textarea>
+                        <button class="btn btn-lg btn-block submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 pt-3">
+                    <p>Copyright &copy; 2016 Yu Zhe Sass Work</p>
+                </div>
+                <div class="col-sm-6 pt-3">
+                    <ul class="d-flex float-sm-right">
+                        <li><a href="http://line.com" target="_blank"><i class="fab fa-line fa-lg"></i></a></li>
+                        <li><a href="http://facebook.com" target="_blank"><i class="fab fa-facebook fa-lg"></i></a></li>
+                        <li><a href="http://instagram.com" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+                        </li>
+                        <li><a href="http://youtube.com" target="_blank"><i class="fab fa-youtube fa-lg"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </footer>
+
+    <script src="jquery-3.4.0.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script>
+        window.addEventListener("keydown", function (e) {
+            var audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+            var key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
+            if (!audio) return;//stop the function from running all together
+            audio.currentTime = 0;//rewind to the start
+            audio.play()
+            key.classList.add('playing')
+        });
+
+        var keys = document.querySelectorAll('.key')
+        keys.forEach(key => key.addEventListener('transitionend', function (e) {
+            // if (e.propertyName !== 'transform') return; //skip it if its not a transform
+            // e.target.classList.remove('playing');
+            this.classList.remove('playing');
+        }));
+
+        //panels
+        var panels = document.querySelectorAll('.panel');
+
+        function toggleOpen() {
+            console.log('Hello');
+            this.classList.toggle('open');
+        }
+
+        function toggleActive(e) {
+            console.log(e.propertyName);
+            if (e.propertyName.includes('flex')) {
+                this.classList.toggle('open-active');
+            }
+        }
+
+        panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+        panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+    </script>
+</body>
+
+</html>

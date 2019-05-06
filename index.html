@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootstrap Sass</title>
+    <link rel="stylesheet" href="sass/app.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-main-color">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="service.html">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">VueJS</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right d-none d-md-flex">
+                    <li><a class="nav-link" href="http://line.com" target="_blank"><i class="fab fa-line fa-lg"></i></a>
+                    </li>
+                    <li><a class="nav-link" href="http://facebook.com" target="_blank"><i
+                                class="fab fa-facebook fa-lg"></i></a></li>
+                    <li><a class="nav-link" href="http://instagram.com" target="_blank"><i
+                                class="fab fa-instagram fa-lg"></i></a></li>
+                    <li><a class="nav-link" href="http://youtube.com" target="_blank"><i
+                                class="fab fa-youtube fa-lg"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="showcase">
+        <div class="container">
+            <h1>Got Ideas?</h1>
+            <p class="lead">I have no Idea what website should i make...OKAY FINE.. Life GOES ON</p>
+            <a href="about.html" class="btn btn-main-color">Read More</a>
+        </div>
+    </div>
+
+    <div class="section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="fab fa-html5"></i>
+                    <h3>Clean & Simple Code</h3>
+                    <p>Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web applications.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fab fa-sass"></i>
+                    <h3>Sass Customizer</h3>
+                    <p>Sass (Syntactically awesome style sheets) is a style sheet language initially designed by Hampton Catlin.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fab fa-java"></i>
+                    <h3>Javascript</h3>
+                    <p>JavaScript is a high-level, interpreted programming language that conforms to the ECMAScript specification. </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section-b">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-6 align-self-center order-2 order-md-1">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="list-group" id="list-tab" role="tablist">
+                                <a class="list-group-item list-group-item-action active" id="list-home-list"
+                                    data-toggle="list" href="#list-home" role="tab" aria-controls="home">Intro</a>
+                                <a class="list-group-item list-group-item-action" id="list-profile-list"
+                                    data-toggle="list" href="#list-profile" role="tab"
+                                    aria-controls="profile">About Me</a>
+                                <a class="list-group-item list-group-item-action" id="list-messages-list"
+                                    data-toggle="list" href="#list-messages" role="tab"
+                                    aria-controls="messages">Hobbies</a>
+                                <a class="list-group-item list-group-item-action" id="list-settings-list"
+                                    data-toggle="list" href="#list-settings" role="tab"
+                                    aria-controls="settings">Portfolio</a>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="list-home" role="tabpanel"
+                                    aria-labelledby="list-home-list">
+                                    <p>My name is Eugene.This page is <span style="color:red">R</span><span style="color:yellow">W</span><span style="color:blue">D</span> webside and it made by <span style="font-weight:bolder;">"Bootstrap4 + Sass" </span>. Which mean i can customize my own page easily with sass.</p>
+                                </div>
+                                <div class="tab-pane fade" id="list-profile" role="tabpanel"
+                                    aria-labelledby="list-profile-list">
+                                    <p>I'm a graphic and web designer , i'm from malaysia  <img src="images/malaysia.png" alt="" class="icon-flag">, currently living in Taipei taiwan.<img src="images/taiwan.png" alt="" class="icon-flag"></p>
+                                </div>
+                                <div class="tab-pane fade" id="list-messages" role="tabpanel"
+                                    aria-labelledby="list-messages-list">
+                                    <p style="font-size:18px;">I enjoy making new things in website especially CSS animation.When I'm not learning, coding or designing, you'll find
+                                        me cooking, playing video games or watching Movies.</p>
+                                </div>
+                                <div class="tab-pane fade" id="list-settings" role="tabpanel"
+                                    aria-labelledby="list-settings-list">
+                                    <p>These is my Work. Click on the bottom link and checkout my work. Hope you will
+                                        like it.</p>
+                                    <a class="badge badge-info" href="http://zhe6289.freevar.com/" target="_blank">CLICK ME for game-web</a>
+                                    <br>
+                                    <a class="badge badge-info" href="https://bated-sites.firebaseapp.com/" target="_blank">CLICK ME for cinema-web</a>
+                                    <br>
+                                    <a class="badge badge-info" href="https://zhe121792.wixsite.com/myportfolio" target="_blank">CLICK ME for Graphic Design</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 order-1 order-md-2">
+                    <img src="images/me.jpg" alt="" class="w-100 image-me">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-c">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 m-auto">
+                    <h2>Subscribe To Our Newsletter</h2>
+                    <br />
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, unde?</p>
+                    <hr />
+                    <form class="contact-form" method="post" action="contact-form-handler.php">
+                        <input name="name" type="text" class="form-control" placeholder="Enter Your Name">
+                        <br>
+                        <input name="email" type="email" class="form-control" placeholder="Enter Your Email">
+                        <br>
+                        <textarea name="message" class="form-control" placeholder="Type Your Message Here" cols="30"
+                            rows="10" required></textarea>
+                        <button class="btn btn-lg btn-block submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 pt-3">
+                    <p>Copyright &copy; 2016 Yu Zhe Sass Work</p>
+                </div>
+                <div class="col-sm-6 pt-3">
+                    <ul class="d-flex float-sm-right">
+                        <li><a href="http://line.com" target="_blank"><i class="fab fa-line fa-lg"></i></a></li>
+                        <li><a href="http://facebook.com" target="_blank"><i class="fab fa-facebook fa-lg"></i></a></li>
+                        <li><a href="http://instagram.com" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+                        </li>
+                        <li><a href="http://youtube.com" target="_blank"><i class="fab fa-youtube fa-lg"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </footer>
+
+    <script src="jquery-3.4.0.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+</body>
+
+</html>

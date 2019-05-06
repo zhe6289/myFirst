@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootstrap Sass</title>
+    <link rel="stylesheet" href="sass/app.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-main-color">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="service.html">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">VueJS</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right d-none d-md-flex">
+                    <li><a class="nav-link" href="http://line.com" target="_blank"><i class="fab fa-line fa-lg"></i></a>
+                    </li>
+                    <li><a class="nav-link" href="http://facebook.com" target="_blank"><i
+                                class="fab fa-facebook fa-lg"></i></a></li>
+                    <li><a class="nav-link" href="http://instagram.com" target="_blank"><i
+                                class="fab fa-instagram fa-lg"></i></a></li>
+                    <li><a class="nav-link" href="http://youtube.com" target="_blank"><i
+                                class="fab fa-youtube fa-lg"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="scroll-container">
+        <section>
+            <h1>Scroll down</h1>
+        </section>
+
+        <section class="sticky-scroll">
+            <blockquote>
+                "I know nothing , but javascript is fun"<span class="span-scroll"></span>
+            </blockquote>
+            <img src="images/oceanboy.jpg" id="oceanboy" alt="">
+            <img src="images/dog.jpg" id="dog" alt="">
+            <div class="box green"><p>H</p> </div>
+            <div class="box grey"><p>E</p> </div>
+            <div class="box orange"><p>L</p> </div>
+            <div class="box green"><p>L</p> </div>
+            <div class="box grey"><p>O</p> </div>
+            <div class="box orange"><p>!</p> </div>
+            <div class="box green"><p>你</p> </div>
+            <div class="box grey"><p>好</p> </div>
+            <div class="box orange"><p>！</p> </div>
+        </section>
+
+        <section>
+            <h1>Scroll up</h1>
+        </section>
+    </div>
+
+    <div class="section-c">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 m-auto">
+                    <h2>Subscribe To Our Newsletter</h2>
+                    <br />
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, unde?</p>
+                    <hr />
+                    <form class="contact-form" method="post" action="contact-form-handler.php">
+                        <input name="name" type="text" class="form-control" placeholder="Enter Your Name">
+                        <br>
+                        <input name="email" type="email" class="form-control" placeholder="Enter Your Email">
+                        <br>
+                        <textarea name="message" class="form-control" placeholder="Type Your Message Here" cols="30"
+                            rows="10" required></textarea>
+                        <button class="btn btn-lg btn-block submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 pt-3">
+                    <p>Copyright &copy; 2016 Yu Zhe Sass Work</p>
+                </div>
+                <div class="col-sm-6 pt-3">
+                    <ul class="d-flex float-sm-right">
+                        <li><a href="http://line.com" target="_blank"><i class="fab fa-line fa-lg"></i></a></li>
+                        <li><a href="http://facebook.com" target="_blank"><i class="fab fa-facebook fa-lg"></i></a></li>
+                        <li><a href="http://instagram.com" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+                        </li>
+                        <li><a href="http://youtube.com" target="_blank"><i class="fab fa-youtube fa-lg"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </footer>
+
+    <script src="jquery-3.4.0.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
+
+    <script>
+        var tl = new TimelineMax({ onUpdate: updatePercentage });
+        var tl2 = new TimelineMax();
+        const controller = new ScrollMagic.Controller();
+
+        tl.from('blockquote', .5, { x: 200, opacity: 0 });
+        tl.from('.span-scroll', 1, { width: 0 }, "=-.5");
+        tl.from('#oceanboy', 1, { x: -200, opacity: 0, ease: Power4.easeInOut}, "=-1");
+        tl.from('#dog', 1, { x: 200, opacity: 0, ease: Power4.easeInOut}, "=-.7");
+        tl2.from(".green", 0.5, {opacity: 0,rotation:360, y:-100}, "=-.5");
+        tl2.from(".grey", 0.5, {opacity: 0,rotation:360, y:-100}, "=-.3");
+        tl2.from(".orange", 0.5, {opacity: 0,rotation:360, y:-100}, "=-.3");
+
+        const scene = new ScrollMagic.Scene({
+            triggerElement: ".sticky-scroll",
+            triggerHook: "onLeave",
+            duration: "2500"
+        })
+            .setPin(".sticky-scroll")
+            .setTween(tl)
+            .addTo(controller);
+
+        const scene2 = new ScrollMagic.Scene({
+            triggerElement: ".sticky-scroll"
+        })
+            .setTween(tl2)
+            .addTo(controller);
+            
+
+
+        function updatePercentage() {
+            //percent.innerHTML = (tl.progress() *100 ).toFixed();
+            tl.progress();
+            console.log(tl.progress());
+        }
+    </script>
+</body>
+
+</html>

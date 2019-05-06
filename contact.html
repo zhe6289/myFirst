@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootstrap Sass</title>
+    <link rel="stylesheet" href="sass/app.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <style>
+        #app {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-main-color">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="service.html">Service</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="contact.html">VueJS</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right d-none d-md-flex">
+                    <li><a class="nav-link" href="http://line.com" target="_blank"><i class="fab fa-line fa-lg"></i></a>
+                    </li>
+                    <li><a class="nav-link" href="http://facebook.com" target="_blank"><i
+                                class="fab fa-facebook fa-lg"></i></a></li>
+                    <li><a class="nav-link" href="http://instagram.com" target="_blank"><i
+                                class="fab fa-instagram fa-lg"></i></a></li>
+                    <li><a class="nav-link" href="http://youtube.com" target="_blank"><i
+                                class="fab fa-youtube fa-lg"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="app">
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>From</label>
+                    <select v-model="from" name="" id="" class="form-control">
+                        <option v-bind:value="currency.id" v-for="currency in formattedCurrencies">
+                            {{ currency.currencyName }}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label>To</label>
+                    <select v-model="to" name="" id="" class="form-control">
+                        <option v-bind:value="currency.id" v-for="currency in formattedCurrencies">
+                            {{ currency.currencyName }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <input v-model="amount" type="text" placeholder="Amount" class="form-control my-5">
+                    <div class="text-center">
+                        <button :disabled="disabled" @click="convertCurrency()" class="btn btn-lg btn-info">
+                            {{ loading ? 'Converting ...' : 'Convert'}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <h1 class="text-center display-2 mt-5">{{ calculateResult }}</h1>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="jquery-3.4.0.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <!-- <script src="node_modules/vue/dist/vue.js"></script> -->
+    <script src="js/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script src="js/vueapp.js"></script>
+
+    <script>
+
+    </script>
+</body>
+
+</html>

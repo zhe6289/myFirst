@@ -1,0 +1,11 @@
+//customize 
+@import "../node_modules/bootstrap/scss/functions";
+@import "customVariables";
+@import "function";
+
+//all css
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+//my scss
+@import "custom";
+@import "scroll"
